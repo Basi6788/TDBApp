@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>NumLookup - Database Search</title>
+    <meta name="description" content="Search phone numbers and CNIC records instantly" />
+    <meta name="author" content="NumLookup" />
+
+    <meta property="og:title" content="NumLookup - Database Search" />
+    <meta property="og:description" content="Search phone numbers and CNIC records instantly" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@NumLookup" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <style>
+      :root {
+        /* Safe area variables for notch phones */
+        --safe-area-top: env(safe-area-inset-top);
+        --safe-area-bottom: env(safe-area-inset-bottom);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        /* Pull-to-refresh effect ko default browser wala disable karne ke liye */
+        overscroll-behavior-y: none;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        
+        /* App feel: Text selection disable */
+        user-select: none;
+        -webkit-user-select: none;
+        
+        /* Notch handling */
+        padding-top: var(--safe-area-top);
+        padding-bottom: var(--safe-area-bottom);
+      }
+
+      /* Scrollbar ko poori tarah chhupa diya hai (App style) */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

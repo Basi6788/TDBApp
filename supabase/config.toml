@@ -1,0 +1,16 @@
+project_id = "gijnkxuaejsjbxfruslm"
+
+[functions.number-lookup]
+verify_jwt = false
+
+[functions.get-ad-config]
+verify_jwt = false
+
+[functions.image-to-prompt]
+verify_jwt = false
+
+[functions.text-to-image]
+verify_jwt = false
+
+[functions.edit-image]
+verify_jwt = false

@@ -1,0 +1,41 @@
+android {
+    namespace "com.uchihas.foundation"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.uchihas.foundation"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Deep linking aur Auth redirect ke liye
+        manifestPlaceholders = [
+             "appAuthRedirectScheme": "com.uchihas.foundation"
+        ]
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("my-release-key.keystore")
+            // GitHub Secret check karega, agar na mile to local "romeo1234" use karega
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: "romeo1234"
+            keyAlias System.getenv("KEY_ALIAS") ?: "my-key-alias"
+            keyPassword System.getenv("KEY_PASSWORD") ?: "romeo1234"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        // Debug me bhi release key use kar rahe hain taa ke SHA-256 match kare
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
